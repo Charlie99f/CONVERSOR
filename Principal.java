@@ -10,29 +10,40 @@ public class Principal {
         Scanner sc = new Scanner(System.in);
         ConsultaApi consulta = new ConsultaApi();
         System.out.println("""
-                ############################################
+            ---------------------------------------------
                 Seleccione opcion deseada:
 
-                1.
-                2.
-                3.
-                4.
+                1. USD
+                2. CAD
+                3. EUR
+                4. MXN
 
-                5.
+                5. Salir
 
+                ---------------------------------------------
                 """);
+            System.out.println("Introduce opcion: ");
 
-        try{
-            var eleccion = Integer.valueOf(sc.nextLine());
-
-            Api api = consulta.busquedaApi(eleccion);
-            System.out.println(api);
-            //System.out.println(api);
-
-        }catch (RuntimeException e ){
+        try {
+            int eleccion = Integer.parseInt(sc.nextLine());
+            double valor = consulta.busquedaApi(eleccion);
+            System.out.println("El valor de la opción seleccionada es: " + valor);
+        } catch (RuntimeException e) {
             System.out.println(e.getMessage());
             System.out.println("Finalizo aplicacion");
         }
+
+        // try{
+        //     var eleccion = Integer.valueOf(sc.nextLine());
+
+        //     Api api = consulta.busquedaApi(eleccion);
+        //     System.out.println(api);
+        //     //System.out.println(api);
+
+        // }catch (RuntimeException e ){
+        //     System.out.println(e.getMessage());
+        //     System.out.println("Finalizo aplicacion");
+        // }
 
 
     }
